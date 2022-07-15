@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<!-- ビューポートの設定 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- スタイルシートの読み込み -->
+ <link rel="stylesheet"href="デザイン.css">
+
+                <style>
+
+
+.btn-flat-simple {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #000000;
+  background: #ffff00;
+  transition: .4s;
+}
+
+.btn-flat-simple:hover {
+  background: #ffd700;
+  color: #000000;
+}
+
+
+
+
+
+
+
+/* ここからデモページ用のコード */
+
+
+/* ここまでデモページ用のコード */
+
+.modal-content {
+	width: 50% ;
+	margin: 10px 50px 20px;
+	padding: 10px 20px ;
+	border: 2px solid #aaa ;
+	background: #fff ;
+	position: fixed ;
+	display: none ;
+	z-index: 2 ;
+}
+
+#modal-overlay {
+	z-index: 1 ;
+	display: none ;
+	position: fixed ;
+	top: 0 ;
+	left: 0 ;
+	width: 100% ;
+	height: 120% ;
+	background-color: rgba( 0,0,0, 0.75 ) ;
+}
+
+.button-link {
+	color: #00f ;
+	text-decoration: underline ;
+}
+
+.button-link:hover {
+	cursor: pointer ;
+	color: #f00 ;
+}
+
+
+
+
+
+
+
+
+
+
+                </style>
+
+
+
+
+
+
+<!--↑スタイルシート　実装時別ファイル化
+↓HTML本文-->
+
+
+<!--htnlヘッド部分-->     
+
+		<title>政令月収 自動計算</title><!-- 
+
+		-->
+	</head>
+
+
+
+<!--htmlボディ部分-->
+
+
+
+
+
+
+<body>
+
+
+<!--parentで中央寄せdiv,box１でグループを囲むボックス-->
+
+
+<div class="parent"><div class="box1">
+
+
+
+<h1 class="midashi">
+Japanese government ordinance monthly income calculation<span class="after">
+Income requirements for moving into public housing in Japan
+</span>
+			</h1>
+
+
+
+</div>
+ System as of August 1, 2022
+<a class="modal-syncer button-link" data-target="modal-content-12"> usage rules</a>
+
+
+<div class="box8">
+
+<h3>Calculation of Income</h3>
+<p>①
+<a class="modal-syncer button-link" data-target="modal-content-08"> salary</a>
+②
+<a class="modal-syncer button-link" data-target="modal-content-09">  pension</a>
+③
+<a class="modal-syncer button-link" data-target="modal-content-10">Self-employed, etc. </a>
+④
+<a class="modal-syncer button-link" data-target="modal-content-11">  age</a>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+<p><label for="name"> Applicant :</label>
+①<input type="text" id="master_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="master_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="master_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="master_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+<p><label for="name">members of the household1:</label>
+①<input type="text" id="first_companion_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="first_companion_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="first_companion_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="first_companion_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+<p><label for="name">members of the household2:</label>
+①<input type="text" id="second_companion_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="second_companion_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="second_companion_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="second_companion_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+<p><label for="name">members of the household3:</label>
+①<input type="text" id="third_companion_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="third_companion_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="third_companion_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="third_companion_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+<p><label for="name">members of the household4:</label>
+①<input type="text" id="fourth_companion_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="fourth_companion_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="fourth_companion_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="fourth_companion_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+<p><label for="name">members of the household5:</label>
+①<input type="text" id="fifth_companion_salary" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+②<input type="text" id="fifth_companion_pension" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+③<input type="text" id="fifth_companion_income" name="name" required
+       minlength="4" maxlength="8" size="10">
+<label for="name">Yen</label>
+④<input type="text" id="fifth_companion_age" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">years old</label>
+</p>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--控除区画の作成-->
+
+
+
+<div class="box8">
+<h3>deduction</h3>
+
+
+
+
+
+
+<p>①<a class="modal-syncer button-link" data-target="modal-content-01">Deduction for cohabitation and dependents: </a>
+
+<input type="text" id="relative_disabled" name="name" required
+      3 minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+
+
+<p>②③<a class="modal-syncer button-link" data-target="modal-content-02">Elderly persons for control and Elderly persons for support and control:</a>
+
+
+<input type="text" id="elderly_disabled" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+
+
+<p>④<a class="modal-syncer button-link" data-target="modal-content-03">Supporting relatives:</a>
+
+
+<input type="text" id="support_relative_disabled" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+<p>⑤<a class="modal-syncer button-link" data-target="modal-content-04">Deduction for the disabled:</a>
+
+
+<input type="text" id="disabled_deduction" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+<p>⑥<a class="modal-syncer button-link" data-target="modal-content-05">Deduction for special disabled persons:</a>
+
+
+<input type="text" id="special_disabled_deduction" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+
+
+<p>⑦<a class="modal-syncer button-link" data-target="modal-content-06">widow's exemption:</a>
+
+<input type="text" id="widow_disabled" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+<p>⑧<a class="modal-syncer button-link" data-target="modal-content-07">single-parent exemption:</a>
+
+<input type="text" id="single_parent_disabled" name="name" required
+       minlength="4" maxlength="8" size="3">
+<label for="name">people</label>
+</p>
+
+
+
+
+
+<!--控除入力区画終了-->
+
+
+
+
+
+
+
+
+
+</div>
+<div class="box8">
+
+<h3>Monthly income</h3>
+<p><button id="button2"class="btn-flat-simple">Calculate</button>
+
+
+<p><a class="modal-syncer button-link" data-target="modal-content-13">Explanation of calculation results</a>
+<p><label for="resultForm">Calculation Results:</label><input type="text" id="resultForm2" name="name" required
+       minlength="4" maxlength="8" size="10"><label for="name">Yen</label>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!--モーダルウィンドはネットからの拾い物なので注意して触る。-->
+
+
+
+
+
+
+
+<!-- 1つ目のコンテンツ [開始] -->
+<div id="modal-content-01" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【控除】<br>入居しようとする親族（申込者本人を除く）及び遠隔地扶養家族</p>
+
+
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+<!-- 1つ目のコンテンツ [終了] -->
+
+<!-- 2つ目のコンテンツ [開始] -->
+<div id="modal-content-02" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【特別控除】<br>同一生計配偶者で70歳以上若しくは扶養親族で70歳以上の方</p>	
+        <p>※①ともダブルカウントできます。</p>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+<!-- 2つ目のコンテンツ [終了] -->
+
+<!-- 3つ目のコンテンツ [開始] -->
+<div id="modal-content-03" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【特別控除】<br>扶養親族（配偶者を除く）で16歳以上23歳未満の方</p>
+        <p>※①ともダブルカウントできます。</p>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 3つ目のコンテンツ [終了] -->
+
+
+
+
+<!-- 4つ目のコンテンツ [開始] -->
+<div id="modal-content-04" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+        <p>【特別控除】<br>申込者本人、同居親族又は扶養親族のうち、次に該当するものがある方</p>
+        <p>・身体障がい者手帳の交付を受けている方</p>
+        <p>・戦傷病者手帳の交付を受けている方</p>
+        <p>・知的障がい者更生相談所等により知的障がいと判定された方</p>
+        <p>・精神障がい者保健福祉手帳の交付を受けている方&nbsp;&nbsp;&nbsp;等</p>
+        <p>※①ともダブルカウントできます。</p>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 4つ目のコンテンツ [終了] -->
+
+
+
+<!-- 5つ目のコンテンツ [開始] -->
+<div id="modal-content-05" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【特別控除】<br>申込者本人、同居親族又は扶養親族のうち、次に該当するものがある方</p>
+	<p>・身体障がい者手帳の交付を受けている方で、1級又は2級に該当する方</p>
+        <p>・戦傷病者手帳の交付を受けている方で、特別項症から第3項症にまでに該当する方</p>
+        <p>・知的障がい者更生相談所等により重度の知的障がいと判定された方</p>
+        <p>・精神障がい者保健福祉手帳の交付を受けている方で、1級に該当する方&nbsp;&nbsp;&nbsp;等</p>
+        <p>※①ともダブルカウントできます。</p>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 5つ目のコンテンツ [終了] -->
+
+
+
+<!-- 6つ目のコンテンツ [開始] -->
+<div id="modal-content-06" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【特別控除】<br>申込者本人又は同居親族のうち、「ひとり親」に該当せず、合計所得金額が500万円以下で、事実上婚姻関係と同様の事情にあると認められる方がおらず、次のいずれかに該当する方</p>
+	<p>・夫と離婚した後婚姻しておらず扶養親族がいる方</p>
+        <p>・夫と死別した後婚姻をしていない方又は夫の生死が明らかでない方</p>
+        <p>※①ともダブルカウントできます。</p>
+        <p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 6つ目のコンテンツ [終了] -->
+
+
+<!-- 7つ目のコンテンツ [開始] -->
+<div id="modal-content-07" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>【特別控除】<br>申込者本人又は同居親族のうち、現に婚姻をしていない方又は配偶者の生死が明らかでない方で
+、次の要件のa、b、cの三つすべてに該当する方</p>
+	<p>a,事実上婚姻関係と同様の事情があると認められる方がいないこと</p>
+        <p>b,生計を一にする子（その年分の総所得金額が48万円以下で、他の人の同一生計配偶者や扶養親族になっていないこと）がいること</p>
+        <p>c,合計所得金額が500万円以下であること</p>
+        <p>※①ともダブルカウントできます。</p>
+        <p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 7つ目のコンテンツ [終了] -->
+
+
+
+
+
+
+
+
+<!-- 8つ目のコンテンツ [開始] -->
+<div id="modal-content-08" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>●給与所得とは・・・</p>
+	<p>Amount before deductions</p>
+        <p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+<!-- 8つ目のコンテンツ [終了] -->
+
+
+
+
+
+
+
+
+
+
+<!-- 9つ目のコンテンツ [開始] -->
+<div id="modal-content-09" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>●年金所得とは・・・</p>
+	<p>厚生年金、国民年金、恩給などの所得です。例えば、老齢年金、退職年金をいいます。その他法律により非課税とされている各種年金（障がい年金、遺族年金、福祉年金等）による所得については、0円としてください。</p>
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+<!-- 9つ目のコンテンツ [終了] -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 10つ目のコンテンツ [開始] -->
+<div id="modal-content-10" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>●その他所得とは・・・</p>
+	<p>事業所得、利子所得、配当所得、不動産所得、雑所得などです。例えば、自営業、サービス業、外交員などの所得をいいます。
+これらの所得で税金の申告をしている方は、所得金額を十分に確かめてください。</p>
+
+
+
+
+
+
+
+
+	<p><a id="modal-close" class="button-link">閉じる</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+<!-- 1つ目のコンテンツ [終了] -->
+
+
+
+
+
+
+<!-- 11つ目のコンテンツ [開始] -->
+<div id="modal-content-11" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+	<p>Age at the end of the application date</p>
+
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+<!-- 1つ目のコンテンツ [終了] -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 使い方 -->
+<div id="modal-content-12" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+
+<p>The system is limited to those established under Japanese rules.
+</p>
+
+
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+
+
+
+<div id="modal-content-13" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+
+<p>あくまで、簡易的な計算です。誤りがある場合があるため、こちらに出た結果は、参考でのみ使えます。
+<p>一般世帯158,000円以下（裁量世帯214,000円）以下でお申込みいただけます。
+差額が少ない場合結果が変化する可能性がありますのでお気を付けください。
+
+<p>※裁量世帯：身体障がい者手帳4級までの保持者や小学校就学前の子どもがいる世帯等々、詳しくは「総合募集のご案内」等の冊子で確認ください。
+<p>※より正確な計算・区分等の情報につきましても「総合募集のご案内」の冊子をご確認ください。（各リージョンセンター等窓口で募集期間中に配布）
+</p>
+
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+
+</div>
+
+
+
+
+<div id="modal-content-14" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+<p>以下に該当し、政令月収が21万4千円以下。
+<br>①申込者又は同居人に、身体障がい者手帳の交付を受けている方で、その障がいの程度が1級から4級までの方がいる世帯
+<br>②申込本人又は同居者に、精神障がい者保健福祉手帳の交付を受けている方で、その障がいの程度が1級又は2級の方又は同程度の障がいを有すると認められる方がいる世帯
+<br>③申込本人又は同居者に、療育手帳の交付を受けている方で、その障がいの程度がA又はB1の方又は同程度の障がいを有すると子ども家庭センター若しくは大阪府障がい者自立支援センター長により判定された方がいる世帯
+<br>④申込本人が60歳以上であって、かつ、同居人のいずれも60歳以上又は18歳未満の方である世帯。
+※年齢は募集期間末日現在での満年齢です。
+<br>⑤申込者本人又は同居人に、戦傷病者手帳の交付を受けている方で、その障がいの程度が特別項症から第6項症まで又は第1款症の方がいる世帯
+<br>⑥申込本人又は同居者に、原子爆弾被爆者に対する援護に関する法律第11条第1項の規定により厚生労働大臣の認定を受けている方がいる世帯
+<br>⑦申込者又は同居者に、海外からの引揚者であることの証明書（厚生労働省社会・援護局長の発行する永住帰国者証明書）の交付を受けている方で、本邦に引き揚げた日から起算して5年を経過していない方がいる世帯
+<br>⑧申込本人又は同居人に、平成8年3月31日までの間に厚生労働大臣が定めるハンセン病療養所に入所していた方がいる世帯
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+
+<div id="modal-content-15" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+
+<p>34400　10.4万円以下
+<p>39700　10.4万円超 12.3万円以下
+<p>45400　12.3万円超 13.9万円以下
+<p>54200　13.9万円超 15.8万円以下
+<p>58500　15.8万円超 18.6万円以下
+<p>67500　18.6万円超 21.4万円以下
+<p>79000　21.4万円超 25.9万円以下
+<p>91100　25.9万円超
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+
+</div>
+
+
+
+
+<div id="modal-content-16" class="modal-content">
+	<!-- モーダルウィンドウのコンテンツ開始 -->
+<p>政令月収が15万8千円以下
+	<p><a id="modal-close" class="button-link">close</a></p>
+	<!-- モーダルウィンドウのコンテンツ終了 -->
+</div>
+
+
+
+
+<!-- JavaScriptの読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="新しいテキスト ドキュメント.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
